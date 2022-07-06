@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body { 
+	background-color:white;
+	background-image:url("../resources/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin:0;
+	font-family:arial;	
+}
+
+.vertical-menu {
+  width: 200px;
+  float:left;
+  height:100vh;
+  background-color: #84B4CB;
+}
+
+.vertical-menu a {
+  background-color: #84B4CB;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #adccdb;
+}
+
+.vertical-menu a.active {
+  background-color:#044A6A;
+  color: white;
+  border:10px solid #044A6A;
+    font-size: large;
+
+}
