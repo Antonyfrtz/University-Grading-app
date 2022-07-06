@@ -9,18 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Show courses</title>
-<link rel="stylesheet" href="../css/commons.css">
-<link rel="stylesheet" href="../css/allcourses.css">
+<link rel="stylesheet" href="../../css/commons.css">
+<link rel="stylesheet" href="../../css/allcourses.css">
 </head>
 <body>
 
 <div class="vertical-menu">
-  <a href="#">Home</a>
+  <a href="../../index.html">Home</a>
   <a href="#">User Profile</a>
   <a href="allcourses.jsp" class="active">Courses</a>
   <a href="courseProf.jsp">Teaching staff per course</a>
   <a href="assignment.jsp">Course and Professor Management</a>
-  <a href="contact.jsp">Contact</a>
+  <a href="../contact.jsp">Contact</a>
 </div>
 <br>
 <div style="margin-left:5%;">
@@ -41,9 +41,10 @@ if(user!=null){
 	    <table class="center">
         	<thead>
             	<tr>
-                	<th><center>Course Year</center></th>
-                	<th><center>Course Name</center></th>
-                	<th><center>Course Id</center></th>
+                	<th style="  text-align: center;">Course Year</th>
+                	<th style="  text-align: center;">Semester</th>
+                	<th style="  text-align: center;">Course Name</th>
+                	<th style="  text-align: center;">Course ID</th>
             	</tr>
         	</thead>
         	<tbody>
@@ -56,12 +57,14 @@ if(user!=null){
   			<tr>
                 <%
                     int courseyear = rs.getInt("courseyear");
+                    int semester = rs.getInt("semester");
                     String coursename = rs.getString("coursename");
                     String courseid = rs.getString("course_id");
                 %>
-                <td><center><%=courseyear %></center></td>
-                <td><center><%=coursename %></center></td>
-                <td><center><%=courseid %></center></td>
+                <td style="  text-align: center;"><%=courseyear %></td>
+                <td style="  text-align: center;"><%=semester%></td>
+                <td style="  text-align: center;"><%=coursename %></td>
+                <td style="  text-align: center;"><%=courseid %></td>
                 
             </tr>               
 

@@ -12,7 +12,7 @@
 <body>
 
 <div class="vertical-menu">
-  <a href="#">Home</a>
+  <a href="../index.html">Home</a>
   <a href="login.jsp">Login</a>
   <a href="register.jsp" >Registration</a>
   <a href="contact.jsp" class="active">Contact</a>

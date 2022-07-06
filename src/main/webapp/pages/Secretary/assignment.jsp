@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="com.DB" %>
+<%@ page import="com.SecretaryDB" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="servletpackage.SecretaryServlet" %>
@@ -10,18 +10,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Assign Professor to Course</title>
-<link rel="stylesheet" href="../css/commons.css">
-<link rel="stylesheet" href="../css/assignment.css">
+<link rel="stylesheet" href="../../css/commons.css">
+<link rel="stylesheet" href="../../css/assignment.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 <div class="vertical-menu">
-  <a href="#">Home</a>
+  <a href="../../index.html">Home</a>
   <a href="#">User Profile</a>
   <a href="allcourses.jsp">Courses</a>
   <a href="courseProf.jsp">Teaching staff per course</a>
   <a href="assignment.jsp" class="active">Course and Professor Management</a>
-  <a href="contact.jsp">Contact</a>
+  <a href="../contact.jsp">Contact</a>
 </div>
 <br>
 <br>
@@ -30,12 +30,12 @@
 <form method="post" action="../SecretaryServlet" >
   <label for="courses">Choose one of the available courses:</label>
   <select name="courses" id="courses">
-  <% out.println(DB.getCourses());%>
+  <% out.println(SecretaryDB.getCourses());%>
   </select>
   <br><br>
   <label for="professors">Choose a professor to assign the previously selected course:</label>
   <select name="professors" id="professors">
-  <% out.println(DB.getProfessors());%>
+  <% out.println(SecretaryDB.getProfessors());%>
   </select>
   <br><br>
   <input type="submit" value="Submit" class="button">
