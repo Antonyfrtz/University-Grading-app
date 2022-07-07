@@ -8,14 +8,19 @@
 <link rel="icon" href="../resources/favicon.jpg">
 <link rel="stylesheet" href="../css/commons.css">
 <link rel="stylesheet" href="../css/courseProf.css">
+<%if(session.getAttribute("username")==null){response.sendRedirect("../login.jsp");}%>
 </head>
 <body>
-
 <div class="vertical-menu">
-  <a href="../index.html">Home</a>
+  <a href="../index.jsp">Home</a>
   <a href="login.jsp">Login</a>
   <a href="register.jsp" >Registration</a>
   <a href="contact.jsp" class="active">Contact</a>
+        <%if(session.getAttribute("username")!=null){%>
+  <form id="logout" action="../../LogoutServlet" method="POST">
+  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
+  </form>
+  <%}%>
 </div>
 <br><br>
 

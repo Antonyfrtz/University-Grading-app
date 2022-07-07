@@ -11,7 +11,7 @@
 </head>
 
 <div class="vertical-menu">
-  <a href="../index.html">Home</a>
+  <a href="../index.jsp">Home</a>
   <a href="login.jsp">Login</a>
   <a href="register.jsp" class="active">Registration</a>
   <a href="contact.jsp">Contact</a>

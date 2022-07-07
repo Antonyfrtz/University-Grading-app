@@ -69,10 +69,10 @@ public class SecretaryServlet extends HttpServlet {
 		}
 		R.close();
 		con.close();
-		response.sendRedirect("./pages/assignment.jsp?updated=true");
+		response.sendRedirect("./pages/Secretary/assignment.jsp?updated=true");
 		}
 		catch(Exception e){	
-			response.sendRedirect("./pages/assignment.jsp?updated=false");
+			response.sendRedirect("./pages/Secretary/assignment.jsp?updated=false");
 			}
 	}
 

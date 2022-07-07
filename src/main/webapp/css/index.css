@@ -24,10 +24,90 @@ h2{
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-padding: 50px;
-    width: 600px;
+    padding-left: 5%;
+    width: 40%;
+    display:inline-block;
+    float:left;
 }
 .scroller section {
     scroll-snap-align: start;
     padding:20px;
     text-align:justify;
+}
+
+.info{
+    padding-left:5%;
+}
+
+.info > ul {
+    list-style: none;
+}
+
+.info > ul li::before {
+    content: "\2022"; /*bullet unicode*/
+    color: #3EB2D8;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+.calendar{
+    width:45%;
+    display:inline-block;
+    float:left;
+    padding-left:5%;;
+}
+
+.month {
+  padding: 23px 11px;
+  background: #044A6A;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 12%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 12%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #2590B7;
+  color: white !important
 }

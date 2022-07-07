@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.DB;
 import java.sql.*;
 import com.Encryption;
@@ -56,9 +58,12 @@ public class LoginServlet extends HttpServlet {
 			String hashed_password=rs1.getString("hashed_password");
 			String calculatedMD5=Encryption.getHashMD5(pwd,salt);
 			if(hashed_password.equals(calculatedMD5)){
-				System.out.println("user::"+user);
-				System.out.println("success");
-				response.sendRedirect("./pages/allcourses.jsp?username="+user);
+				//System.out.println("user::"+user);
+				//System.out.println("success");
+		        HttpSession session = request.getSession();
+        		session.setAttribute("username", user);
+        		session.setAttribute("role", rs1.getString("role"));
+        		response.sendRedirect("./index.jsp");
 			}
 			else{
 				response.sendRedirect("./pages/login.jsp?nologin=true");

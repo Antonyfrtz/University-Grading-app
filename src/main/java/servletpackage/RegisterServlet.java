@@ -70,10 +70,12 @@ public class RegisterServlet extends HttpServlet {
 		p2.executeUpdate();
 
 		con.close();
-		response.sendRedirect("./pages/allcourses.jsp?username="+user);
+		response.sendRedirect("./index.jsp");
 		}
 		catch(Exception e) {
 			response.sendRedirect("./pages/default.html");
+			e.printStackTrace();
+			System.out.print(e);
 		}
 	}
 }

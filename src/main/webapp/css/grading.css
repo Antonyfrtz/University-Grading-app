@@ -1,13 +1,52 @@
 @charset "UTF-8";
 
-form {
+.selectionform {
   margin:auto;
   text-align: center;
   margin-top:7%;
   background-color:rgba(89, 143, 179,0.6);
-  width:50%;
+  width:60%;
   padding-top: 4%;
   padding-bottom:4%;
+}
+td{
+	font-weight:normal;
+}
+table{
+  margin:auto;
+}
+
+.fields{
+	background: transparent;
+    border: none;
+    border-bottom: thin solid #044A6A;
+    outline-width: 0;
+    font-size: 14px;
+    width:20px;
+}
+
+.fields:focus{
+    background-color:#A6DCF5;
+}
+
+.submit{
+    background-color: #2596be;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    border-radius:6px;
+    float:right;
+    margin-right:20%;
+}
+
+.submit:hover{
+    background-color: #1b708e;
 }
 
 select {

@@ -11,26 +11,31 @@
 <title>Show courses</title>
 <link rel="stylesheet" href="../../css/commons.css">
 <link rel="stylesheet" href="../../css/allcourses.css">
+<%if(session.getAttribute("username")==null){response.sendRedirect("../login.jsp");}%> 
 </head>
 <body>
 
 <div class="vertical-menu">
-  <a href="../../index.html">Home</a>
+  <a href="../../index.jsp">Home</a>
   <a href="#">User Profile</a>
   <a href="allcourses.jsp" class="active">Courses</a>
   <a href="courseProf.jsp">Teaching staff per course</a>
   <a href="assignment.jsp">Course and Professor Management</a>
   <a href="../contact.jsp">Contact</a>
+  <%if(session.getAttribute("username")!=null){%>
+  <form id="logout" action="../../LogoutServlet" method="POST">
+  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
+  </form>
+  <%}%>
 </div>
 <br>
 <div style="margin-left:5%;">
 
 <%
-String user=request.getParameter("username");
-if(user!=null){
+if(session.getAttribute("username")!=null){String user=session.getAttribute("username").toString();
 %>
 <h2 style="  text-align: center;">Welcome <%=user %>!</h2>
-<%}else{ %>
+<%}else{ response.sendRedirect("../login.jsp");%>
 <br>
 <%} %>
 

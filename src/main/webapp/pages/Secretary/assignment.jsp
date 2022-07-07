@@ -13,21 +13,28 @@
 <link rel="stylesheet" href="../../css/commons.css">
 <link rel="stylesheet" href="../../css/assignment.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<%if(session.getAttribute("username")==null){response.sendRedirect("../login.jsp");}%> 
+
 </head>
 <body>
 <div class="vertical-menu">
-  <a href="../../index.html">Home</a>
+  <a href="../../index.jsp">Home</a>
   <a href="#">User Profile</a>
   <a href="allcourses.jsp">Courses</a>
   <a href="courseProf.jsp">Teaching staff per course</a>
   <a href="assignment.jsp" class="active">Course and Professor Management</a>
   <a href="../contact.jsp">Contact</a>
+      <%if(session.getAttribute("username")!=null){%>
+  <form id="logout" action="../../LogoutServlet" method="POST">
+  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
+  </form>
+  <%}%>
 </div>
 <br>
 <br>
 <div style="margin-left:200px;" >
 <h2 style="  text-align: center;">Assign Professor to Course</h2>
-<form method="post" action="../SecretaryServlet" >
+<form method="post" action="../../SecretaryServlet" >
   <label for="courses">Choose one of the available courses:</label>
   <select name="courses" id="courses">
   <% out.println(SecretaryDB.getCourses());%>

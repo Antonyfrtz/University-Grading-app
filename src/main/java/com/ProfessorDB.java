@@ -12,6 +12,7 @@ public class ProfessorDB {
 			  p.setString(1,profId);
 			  ResultSet rs=p.executeQuery();
 			  StringBuilder sb = new StringBuilder();
+			  sb.append("<option style=\"display:none;\"></option>");
 			  while(rs.next()) {
 					String courseName = rs.getString("coursename");
 					sb.append("<option>"+courseName+"</option>");
@@ -25,29 +26,32 @@ public class ProfessorDB {
 		  }
 	}
 	
+	
 	public static String getCourseStud(String courseName) {
 		Connection con=DB.con();
 		try {
-		      PreparedStatement p= con.prepareStatement("SELECT user_id,name,surname FROM users WHERE users.user_id IN (SELECT student_id FROM grades g INNER JOIN courses c ON g.course_id=c.course_id WHERE c.coursename=(?)");
+		      PreparedStatement p= con.prepareStatement("SELECT user_id,name,surname FROM java2db.users WHERE java2db.users.user_id IN (SELECT g.student_id FROM java2db.grades g INNER JOIN java2db.courses c ON g.course_id=c.course_id WHERE c.coursename=(?) AND g.grade is null)");
 			  p.setString(1,courseName);
 			  ResultSet rs=p.executeQuery();
 			  StringBuilder sb = new StringBuilder();
+
 			  while(rs.next()) {
-					String name = rs.getString("name");
-					sb.append("<option>"+name+"</option>");
-					String surname = rs.getString("surname");
-					sb.append("<option>"+surname+"</option>");
-					String id = rs.getString("user_id");
-					sb.append("<option>"+id+"</option>");
+				  String uID=rs.getString("user_id");
+					  sb.append("<tr><td>"+uID+"</td> <td>"+rs.getString("name")+"</td> <td>"+rs.getString("surname")
+				      +"</td> <td><input type=\"text\" class=\"fields\" id=\""+uID+"\" name=\""+uID+"\" pattern=\"[0-9]|10\" maxlength=\"2\"></td></tr>");			  
 			  }
+
 			  rs.close();
 		      con.close();
 			  return sb.toString();
 		}
 		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
 		return "";
 		}
 	}
+	
 	
 	public static String getGradesTable(String profID) {
 		Connection con=DB.con();
@@ -61,7 +65,7 @@ public class ProfessorDB {
 				    int cid=rs.getInt("course_id");
 				    sb.append("<table class=\"center\"><tr><td><b>"+rs.getString("coursename")+"</b></td></tr>");
 				    sb.append("<tr><td>Student Id</td><td>Name<td>Surname</td><td>Grade</td></td></tr>");
-				    p= con.prepareStatement ("SELECT user_id,name,surname,grade FROM java2db.grades g INNER JOIN java2db.users u ON g.student_id=u.user_id WHERE g.course_id=(?)");
+				    p= con.prepareStatement ("SELECT user_id,name,surname,grade FROM java2db.grades g INNER JOIN java2db.users u ON g.student_id=u.user_id WHERE g.course_id=(?) AND g.grade is not null");
 					p.setInt(1,cid);	
 					rs2=p.executeQuery();
 
@@ -81,7 +85,7 @@ public class ProfessorDB {
             
             // Prints what exception has been thrown
             System.out.println(e);
-            return "lala";
+            return "an error occured";
 		}
 		
 	}

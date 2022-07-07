@@ -12,15 +12,22 @@
 <title>Courses and Professors</title>
 <link rel="stylesheet" href="../../css/commons.css">
 <link rel="stylesheet" href="../../css/courseProf.css">
+<%if(session.getAttribute("username")==null){response.sendRedirect("../login.jsp");}%> 
+
 </head>
 <body>
 <div class="vertical-menu">
-  <a href="../../index.html">Home</a>
+  <a href="../../index.jsp">Home</a>
   <a href="#">User Profile</a>
   <a href="allcourses.jsp">Courses</a>
   <a href="courseProf.jsp" class="active">Teaching staff per course</a>
   <a href="assignment.jsp">Course and Professor Management</a>
   <a href="../contact.jsp">Contact</a>
+      <%if(session.getAttribute("username")!=null){%>
+  <form id="logout" action="../../LogoutServlet" method="POST">
+  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
+  </form>
+  <%}%>
 </div>
 <br>
 <h2>Courses and Professor in charge per course</h2>

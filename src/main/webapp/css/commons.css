@@ -9,6 +9,16 @@ body {
 	font-family:arial;	
 }
 
+.logout{
+	position:absolute; 
+	bottom:0;
+	color:white !important;
+	background-color:#4e0b1d !important;
+	width:200px !important;
+	padding:20px 0px 20px !important;
+	text-align:center;
+}
+
 .vertical-menu {
   width: 200px;
   float:left;
@@ -33,5 +43,4 @@ body {
   color: white;
   border:10px solid #044A6A;
     font-size: large;
-
 }
