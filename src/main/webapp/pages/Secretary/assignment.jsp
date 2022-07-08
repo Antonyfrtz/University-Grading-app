@@ -25,8 +25,8 @@
   <a href="assignment.jsp" class="active">Course and Professor Management</a>
   <a href="../contact.jsp">Contact</a>
       <%if(session.getAttribute("username")!=null){%>
-  <form id="logout" action="../../LogoutServlet" method="POST">
-  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
+  <form id="logout" action="../../LogoutServlet" method="POST" style="background-color:#84B4CB;">
+  	<a href="#" onclick="document.getElementById('logout').submit();" class="logout" style="left:0px;"> Logout </a>
   </form>
   <%}%>
 </div>

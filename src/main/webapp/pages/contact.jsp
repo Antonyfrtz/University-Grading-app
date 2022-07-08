@@ -17,7 +17,7 @@
   <a href="register.jsp" >Registration</a>
   <a href="contact.jsp" class="active">Contact</a>
         <%if(session.getAttribute("username")!=null){%>
-  <form id="logout" action="../../LogoutServlet" method="POST">
+  <form id="logout" action="../LogoutServlet" method="POST">
   	<a href="#" onclick="document.getElementById('logout').submit();" class="logout"> Logout </a>
   </form>
   <%}%>
