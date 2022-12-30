@@ -1,4 +1,5 @@
 # University Grading app
+Important! This app was created with the help of 3 of my classmates for our university course "Web programming"
 ### Purpose
 The purpose of this project was to create a complete online
 grading application for university students implemented in Java.
